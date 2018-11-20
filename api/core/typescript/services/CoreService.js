@@ -1,30 +1,28 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Rx_1 = require("rxjs/Rx");
-var _ = require('lodash');
+const Rx_1 = require("rxjs/Rx");
+const _ = require('lodash');
 var Services;
 (function (Services) {
     var Core;
     (function (Core) {
-        var Service = (function () {
-            function Service() {
+        class Service {
+            constructor() {
                 this._exportedMethods = [];
                 this._defaultExportedMethods = [
                     '_config',
                 ];
             }
-            Service.prototype.getObservable = function (q, method, type) {
-                if (method === void 0) { method = 'exec'; }
-                if (type === void 0) { type = 'node'; }
+            getObservable(q, method = 'exec', type = 'node') {
                 if (type == 'node')
                     return Rx_1.Observable.bindNodeCallback(q[method].bind(q))();
                 else
                     return Rx_1.Observable.bindCallback(q[method].bind(q))();
-            };
-            Service.prototype.exec = function (q, successFn, errorFn) {
+            }
+            exec(q, successFn, errorFn) {
                 this.getObservable(q).subscribe(successFn, errorFn);
-            };
-            Service.prototype.exports = function () {
+            }
+            exports() {
                 var methods = this._defaultExportedMethods.concat(this._exportedMethods);
                 var exportedMethods = {};
                 for (var i = 0; i < methods.length; i++) {
@@ -46,9 +44,8 @@ var Services;
                     }
                 }
                 return exportedMethods;
-            };
-            return Service;
-        }());
+            }
+        }
         Core.Service = Service;
     })(Core = Services.Core || (Services.Core = {}));
 })(Services = exports.Services || (exports.Services = {}));

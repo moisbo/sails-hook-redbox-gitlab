@@ -135,7 +135,7 @@ export module Services {
     }
 
     create(config: any, token: string, creation: any, group: any) {
-      const body = {
+      const body:any = {
         name: creation.name,
         description: creation.description
       };

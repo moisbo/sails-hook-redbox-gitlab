@@ -1,6 +1,5 @@
 declare var _;
 declare var sails;
-const _ = require('lodash');
 
 import pathExists = require('path-exists');
 export module Controllers.Core {

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "isolatedModules": false,
@@ -20,6 +20,7 @@
     "node_modules/**",
     "typings/browser/**",
     "typings/browser.d.ts",
+    ".buid/node_modules",
     "test/integration/**/*.ts"
   ],
   "include": [

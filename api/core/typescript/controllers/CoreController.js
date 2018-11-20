@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _ = require('lodash');
-var pathExists = require("path-exists");
+const pathExists = require("path-exists");
 var Controllers;
 (function (Controllers) {
     var Core;
     (function (Core) {
-        var Controller = (function () {
-            function Controller() {
+        class Controller {
+            constructor() {
                 this._config = {};
                 this._exportedMethods = [];
                 this._theme = 'default';
@@ -17,7 +16,7 @@ var Controllers;
                     '_config',
                 ];
             }
-            Controller.prototype.exports = function () {
+            exports() {
                 var methods = this._defaultExportedMethods.concat(this._exportedMethods);
                 var exportedMethods = {};
                 for (var i = 0; i < methods.length; i++) {
@@ -39,16 +38,14 @@ var Controllers;
                     }
                 }
                 return exportedMethods;
-            };
-            Controller.prototype._handleRequest = function (req, res, callback, options) {
-                if (options === void 0) { options = {}; }
+            }
+            _handleRequest(req, res, callback, options = {}) {
                 callback(req, res, options);
-            };
-            Controller.prototype.index = function (req, res, callback, options) {
-                if (options === void 0) { options = {}; }
+            }
+            index(req, res, callback, options = {}) {
                 res.notFound();
-            };
-            Controller.prototype._getResolvedView = function (branding, portal, view) {
+            }
+            _getResolvedView(branding, portal, view) {
                 var resolvedView = null;
                 var viewToTest = sails.config.appPath + "/views/" + branding + "/" + portal + "/" + view + ".ejs";
                 if (pathExists.sync(viewToTest)) {
@@ -67,8 +64,8 @@ var Controllers;
                     }
                 }
                 return resolvedView;
-            };
-            Controller.prototype._getResolvedLayout = function (branding, portal) {
+            }
+            _getResolvedLayout(branding, portal) {
                 var resolvedLayout = null;
                 var layoutToTest = sails.config.appPath + "/views/" + branding + "/" + portal + "/layout/layout.ejs";
                 if (pathExists.sync(layoutToTest)) {
@@ -87,9 +84,8 @@ var Controllers;
                     }
                 }
                 return resolvedLayout;
-            };
-            Controller.prototype.sendView = function (req, res, view, locals) {
-                if (locals === void 0) { locals = {}; }
+            }
+            sendView(req, res, view, locals = {}) {
                 if (req.options.locals == null) {
                     req.options.locals = {};
                 }
@@ -113,53 +109,45 @@ var Controllers;
                 sails.log.error("mergedLocal");
                 sails.log.error(mergedLocal);
                 res.view(resolvedView, mergedLocal);
-            };
-            Controller.prototype.respond = function (req, res, ajaxCb, normalCb, forceAjax) {
+            }
+            respond(req, res, ajaxCb, normalCb, forceAjax) {
                 if (req.headers['x-source'] == 'jsclient' || forceAjax == true) {
                     return ajaxCb(req, res);
                 }
                 else {
                     return normalCb(req, res);
                 }
-            };
-            Controller.prototype.ajaxOk = function (req, res, msg, data, forceAjax) {
-                if (msg === void 0) { msg = ''; }
-                if (data === void 0) { data = null; }
-                if (forceAjax === void 0) { forceAjax = false; }
+            }
+            ajaxOk(req, res, msg = '', data = null, forceAjax = false) {
                 if (!data) {
                     data = { status: true, message: msg };
                 }
                 this.ajaxRespond(req, res, data, forceAjax);
-            };
-            Controller.prototype.ajaxFail = function (req, res, msg, data, forceAjax) {
-                if (msg === void 0) { msg = ''; }
-                if (data === void 0) { data = null; }
-                if (forceAjax === void 0) { forceAjax = false; }
+            }
+            ajaxFail(req, res, msg = '', data = null, forceAjax = false) {
                 if (!data) {
                     data = { status: false, message: msg };
                 }
                 this.ajaxRespond(req, res, data, forceAjax);
-            };
-            Controller.prototype.ajaxRespond = function (req, res, jsonObj, forceAjax) {
-                if (jsonObj === void 0) { jsonObj = null; }
+            }
+            ajaxRespond(req, res, jsonObj = null, forceAjax) {
                 var notAjaxMsg = "Got non-ajax request, don't know what do...";
-                this.respond(req, res, function (req, res) {
+                this.respond(req, res, (req, res) => {
                     return res.json(jsonObj);
-                }, function (req, res) {
+                }, (req, res) => {
                     sails.log.verbose(notAjaxMsg);
                     res.notFound(notAjaxMsg);
                 }, forceAjax);
-            };
-            Controller.prototype.getNg2Apps = function (viewPath) {
+            }
+            getNg2Apps(viewPath) {
                 if (sails.config.ng2.use_bundled && sails.config.ng2.apps[viewPath]) {
                     return { ng2_apps: sails.config.ng2.apps[viewPath] };
                 }
                 else {
                     return { ng2_apps: [] };
                 }
-            };
-            return Controller;
-        }());
+            }
+        }
         Core.Controller = Controller;
     })(Core = Controllers.Core || (Controllers.Core = {}));
 })(Controllers = exports.Controllers || (exports.Controllers = {}));

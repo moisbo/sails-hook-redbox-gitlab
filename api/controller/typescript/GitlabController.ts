@@ -3,10 +3,11 @@ declare var sails, Model;
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
-const url = require('url');
-const local = require('../../../config/local');
+import  * as url from  'url';
+// const url = require('url');
+import local from '../../../config/local';
 
-declare var GitlabService, BrandingService, WorkspaceService;
+declare var GitlabService, BrandingService, WorkspaceService, _;
 /**
  * Package that contains all Controllers.
  */
@@ -52,8 +53,8 @@ export module Controllers {
       const username = req.param('username');
       const password = req.param('password');
 
-      let accessToken = {};
-      let user = {};
+      let accessToken:any = {};
+      let user:any = {};
       if (!req.isAuthenticated()) {
         this.ajaxFail(req, res, `User not authenticated`);
       } else {
@@ -122,7 +123,7 @@ export module Controllers {
     public user(req, res) {
       sails.log.debug('get user:');
       this.config.set();
-      let gitlab = {};
+      let gitlab:any = {};
       if (!req.isAuthenticated()) {
         this.ajaxFail(req, res, `User not authenticated`);
       } else {
@@ -150,7 +151,7 @@ export module Controllers {
       sails.log.debug('get related projects');
       this.config.set();
       let currentProjects = [];
-      let projectsWithInfo = [];
+      let projectsWithInfo:any = [];
       let gitlab = {};
       const page = req.query['page'] || 1;
       const perPage = req.query['perPage'] || 10;
@@ -533,7 +534,7 @@ export module Controllers {
         result.content = response.body.content;
         var url_parts = url.parse(response.request.uri.href, true);
         var query = url_parts.query;
-        result.path = query.namespace;
+        result.path = query.namespace[0];
       } else {
         result.content = null;
         result.path = response.path;
