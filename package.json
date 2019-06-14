@@ -29,7 +29,7 @@
     "@types/node": "^10.12.18",
     "@types/lodash": "^4.14.111",
     "mocha": "^5.1.1",
-    "path-exists": "^3.0.0",
+    "path-exists": "^4.0.0",
     "sails": "^1.0.0",
     "typescript": ">=2.4.2 <2.7.0"
   }
