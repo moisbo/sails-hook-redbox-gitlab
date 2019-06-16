@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "^10.12.18",
-    "@types/lodash": "^4.14.111",
+    "@types/lodash": "^4.14.134",
     "mocha": "^5.1.1",
     "path-exists": "^3.0.0",
     "sails": "^1.0.0",
