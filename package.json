@@ -15,7 +15,7 @@
   "author": "Moises Sacal",
   "license": "ISC",
   "dependencies": {
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^8.0.1",
     "lodash": "^4.17.10",
     "ncp": "^2.0.0",
     "request": "^2.85.0",
