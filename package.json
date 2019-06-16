@@ -26,7 +26,7 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "@types/node": "^10.12.18",
+    "@types/node": "^12.0.8",
     "@types/lodash": "^4.14.111",
     "mocha": "^5.1.1",
     "path-exists": "^3.0.0",
