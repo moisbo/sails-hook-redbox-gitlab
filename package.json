@@ -19,7 +19,7 @@
     "lodash": "^4.17.10",
     "ncp": "^2.0.0",
     "request": "^2.85.0",
-    "request-promise": "^4.2.0",
+    "request-promise": "^4.2.4",
     "rxjs": "6.3.3",
     "rxjs-compat": "6.3.3",
     "sails": "^1.0.0",
