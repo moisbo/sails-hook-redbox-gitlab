@@ -242,6 +242,10 @@
   dependencies:
     "@types/geojson" "*"
 
+"@types/lodash@^4.14.112":
+  version "4.14.168"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
+
 "@types/node@6.0.60":
   version "6.0.60"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.60.tgz#e7e134ebc674ae6ed93c36c767739b110d2c57fc"
@@ -5019,7 +5023,13 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rxjs@^5.4.1, rxjs@^5.5.6:
+rxjs@5.5.10:
+  version "5.5.10"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.10.tgz#fde02d7a614f6c8683d0d1957827f492e09db045"
+  dependencies:
+    symbol-observable "1.0.1"
+
+rxjs@^5.5.6:
   version "5.5.11"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.11.tgz#f733027ca43e3bec6b994473be4ab98ad43ced87"
   dependencies:
@@ -5932,7 +5942,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-"typescript@>=2.4.2 <2.7.0", typescript@~2.6.2:
+typescript@^2.6.2:
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
+
+typescript@~2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
 
@@ -6445,8 +6459,8 @@ xxhashjs@^0.2.1:
     cuint "^0.2.2"
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
 
 y18n@^4.0.0:
   version "4.0.0"
