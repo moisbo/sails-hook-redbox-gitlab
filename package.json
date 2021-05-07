@@ -16,7 +16,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "fs-extra": "^8.0.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "ncp": "^2.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
